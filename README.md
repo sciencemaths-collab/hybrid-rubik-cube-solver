@@ -2,9 +2,7 @@
 
 **A research prototype for hybrid discrete–continuous state-transition optimization, demonstrated on Rubik-style search and physics-inspired energy landscapes.**
 
-<p align="center">
-  <img src="docs/figures/architecture.svg" alt="Hybrid Rubik Cube Solver architecture" width="100%">
-</p>
+![Hybrid Rubik Cube Solver architecture](docs/figures/architecture.svg)
 
 ## Overview
 
@@ -95,10 +93,13 @@ PYTHONPATH=src python benchmarks/run_cube_search_benchmark.py \
 
 Shallow random scrambles were solved with both breadth-first search and A*. At depth 4, the current A* prototype expanded about **230.5 nodes on average**, compared with **1,208 nodes** for BFS in this run.
 
-<p align="center">
-  <img src="docs/figures/cube_nodes_expanded.svg" alt="Cube search nodes expanded benchmark" width="48%">
-  <img src="docs/figures/cube_runtime.svg" alt="Cube search runtime benchmark" width="48%">
-</p>
+#### Nodes expanded
+
+![Cube search nodes expanded benchmark](docs/figures/cube_nodes_expanded.svg)
+
+#### Runtime
+
+![Cube search runtime benchmark](docs/figures/cube_runtime.svg)
 
 ### 2. Hybrid adaptive energy benchmark
 
@@ -121,9 +122,9 @@ Measured aggregate result in this run:
 
 The hybrid method produced a higher aggregate score and substantially lower score variance in this benchmark, while the continuous baseline was slightly faster.
 
-<p align="center">
-  <img src="docs/figures/hatem_by_scenario.svg" alt="HATEM perturbation benchmark" width="72%">
-</p>
+#### Robustness across perturbations
+
+![HATEM perturbation benchmark](docs/figures/hatem_by_scenario.svg)
 
 Full methodology and per-scenario results are in [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md).
 
