@@ -1,0 +1,21 @@
+name: qualify
+
+on:
+  pull_request:
+  push:
+    branches: [professional-import]
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: pip install -e ".[dev]"
+      - name: Test
+        run: pytest -q
+      - name: Cube benchmark smoke
+        run: PYTHONPATH=src python benchmarks/run_cube_search_benchmark.py --depths 1,2 --trials 1 --out /tmp/cube.csv --fig-dir /tmp/figs
